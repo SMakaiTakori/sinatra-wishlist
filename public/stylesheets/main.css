@@ -3,7 +3,7 @@
   * {
     list-style: none;
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
   }
 
   html, body {
@@ -56,8 +56,8 @@
   }
 
   .content {
-    float: left;
-    width: 60%; /* 480px / 800px */
+    text-align: center;
+    /* width: 60%; 480px / 800px */
   }
 
   .sidebar {
@@ -80,6 +80,7 @@
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
+    text-align: center;
   }
 }
 
