@@ -1,5 +1,5 @@
-class Item < ActiveRecord::Base
-    
+class Item < ActiveRecord::Base    
+    belongs_to :wishlist
 
 
 end
