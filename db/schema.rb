@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20200402190147) do
 
   create_table "wishlists", force: :cascade do |t|
     t.string  "name"
-    t.string  "list_item"
     t.integer "user_id"
   end
 
