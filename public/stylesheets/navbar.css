@@ -1,0 +1,10 @@
+.links {
+    float: right;
+     display: inline;
+     padding-left: 0;
+     margin-right: 4px;
+  }
+
+  .links a:link, .links a:visited, .links a:hover, .links a:active {
+     color: darkblue;
+}

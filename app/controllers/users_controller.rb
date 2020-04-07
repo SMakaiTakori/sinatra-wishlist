@@ -4,6 +4,7 @@ class UsersController < ApplicationController
         if logged_in?(session)
             @users = User.all
         else
+            #Some kind of flash message 
             redirect to '/'
         end
             erb :'users/index'
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id   
             redirect to "/users/#{user.id}"
         else
+            #Some kind of flash message 
             redirect to "/signup"
         end
     end
@@ -37,14 +39,16 @@ class UsersController < ApplicationController
             session[:user_id] = user.id        
             redirect to "/users/#{user.id}"
         else
+            #Some kind of flash message 
             redirect to "/signup"
         end
     end
 
     get '/users/:id' do
         if User.find_by(id: params[:id])
-        @user = User.find_by(id: params[:id])        
+            @user = User.find_by(id: params[:id])        
         else
+            #Some kind of flash message 
             redirect to "/"
         end
         erb :'users/show'
