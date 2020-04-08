@@ -54,9 +54,9 @@ class UsersController < ApplicationController
         erb :'users/show'
     end
 
-    get'/logout' do 
+    get '/logout' do 
         session.destroy
-        redirect to '/'
+        redirect to "/"
     end
 
 
