@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        if logged_in?(session) &&  User.find_by(id: params[:id])
+        if logged_in?(session) && User.find_by(id: params[:id])
             @user = User.find_by(id: params[:id])        
         else
             #Some kind of flash message 
@@ -58,6 +58,5 @@ class UsersController < ApplicationController
         session.destroy
         redirect to "/"
     end
-
-
+    
 end
