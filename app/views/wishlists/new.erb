@@ -2,8 +2,13 @@
 
 <form action= "/wishlists" method="post">
     <label> Wishlist Name: </label>
-        <input type= "text" name= "name">
-    <label> Item Name: </label>
-        <input type= "text" name= "item_description">
-<button> Create! </button>
+        <input type= "text" name= "wishlist[name]" placeholder= "Ex. Birthday List"><br><br>
+    <label> Item 1: </label>
+        <input type= "text" name= "items[][quantity]" placeholder= "How many do you want?">
+        <input type= "text" name= "items[][name]" placeholder= "Item Name" ><br><br>
+        <label> Item 2: </label>
+        <input type= "text" name= "items[][quantity]" placeholder= "How many do you want?">
+        <input type= "text" name= "items[][name]" placeholder= "Item Name" ><br><br>
+            
+    <button> Create! </button>
 </form>

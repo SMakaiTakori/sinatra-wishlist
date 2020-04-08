@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
+        if logged_in?(session)
+        user = current_user(session)
+        redirect to "/users/#{user.id}"
+        end
         erb :'users/login'
     end
 
@@ -46,7 +50,8 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
         if logged_in?(session) && User.find_by(id: params[:id])
-            @user = User.find_by(id: params[:id])        
+            @user = User.find_by(id: params[:id]) 
+            @wishlists = @user.wishlists       
         else
             #Some kind of flash message 
             redirect to "/"

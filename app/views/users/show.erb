@@ -1,2 +1,8 @@
 
 <h2>Welcome <%= @user.username.capitalize %>!</h2>
+
+    <%@wishlists.each do |wishlist| %>        
+        <li>
+            <a href= "/users/<%=user.id%>"><%= @wishlist.name%> </a>
+        </li>   
+    <%end%>
