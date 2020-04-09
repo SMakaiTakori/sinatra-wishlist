@@ -43,11 +43,17 @@ class WishlistsController < ApplicationController
 
     get '/wishlists/:id/edit' do
         @wishlist = Wishlist.find_by(id: params[:id])  
+        @items = @wishlist.items
 
         if !logged_in?(session) || !@wishlist || @wishlist.user != current_user(session)
             redirect to "/"
         end
         erb :'/wishlists/edit'
+    end
+
+    patch '/wishlists/:id' do
+
+        
     end
 
 end
