@@ -1,5 +1,10 @@
 class WishlistsController < ApplicationController
 
+    get '/wishlists' do
+        @wishlists = Wishlist.all
+        erb :'wishlists/index'
+    end
+
     get '/wishlist/new' do
         if logged_in?(session)
         erb :'wishlists/new'
@@ -24,11 +29,11 @@ class WishlistsController < ApplicationController
 
     get '/wishlists/:id' do      
         if !logged_in?(session)
-            redirect to "/wishlists"
+            redirect to "/"
         end
         @wishlist = Wishlist.find_by(id: params[:id])      
-        if !@wishlist                      
-            redirect to "/wishlists"
+        if !@wishlist                     
+            redirect to "/"
         end
             erb :'/wishlists/show'           
     end
