@@ -70,8 +70,9 @@ class WishlistsController < ApplicationController
 
     delete '/wishlists/:id/delete' do
         wishlist = Wishlist.find_by(id: params[:id]) 
+        items = wishlist.items
             if wishlist && wishlist.user == current_user(session)
-                wishlist.destroy
+                wishlist.destroy                 
             end
             redirect to "/wishlists"
     end
