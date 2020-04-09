@@ -46,14 +46,27 @@ class WishlistsController < ApplicationController
         @items = @wishlist.items
 
         if !logged_in?(session) || !@wishlist || @wishlist.user != current_user(session)
-            redirect to "/"
+            #flash error message
+            redirect to "/wishlists"
         end
         erb :'/wishlists/edit'
     end
 
-    patch '/wishlists/:id' do
-
-        
-    end
+    patch '/wishlists/:id' do    
+              
+        wishlist = Wishlist.find_by(id: params[:id])  
+            if wishlist && wishlist.user == current_user(session)       
+            params["items"].each do |item|
+                i = Item.find_by(id: item[:id])           
+                i.update(name: item[:name], quantity: item[:quantity])
+                # binding.pry
+            end      
+            wishlist.update(params[:wishlist])
+            redirect to "/wishlists/#{wishlist.id}"   
+        else
+            #flash error message
+            redirect to "/wishlists"
+        end
+    end    
 
 end
