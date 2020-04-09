@@ -52,8 +52,7 @@ class WishlistsController < ApplicationController
         erb :'/wishlists/edit'
     end
 
-    patch '/wishlists/:id' do    
-              
+    patch '/wishlists/:id' do                  
         wishlist = Wishlist.find_by(id: params[:id])  
             if wishlist && wishlist.user == current_user(session)       
             params["items"].each do |item|
@@ -68,5 +67,13 @@ class WishlistsController < ApplicationController
             redirect to "/wishlists"
         end
     end    
+
+    delete '/wishlists/:id/delete' do
+        wishlist = Wishlist.find_by(id: params[:id]) 
+            if wishlist && wishlist.user == current_user(session)
+                wishlist.destroy
+            end
+            redirect to "/wishlists"
+    end
 
 end

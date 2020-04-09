@@ -1,22 +1,28 @@
 <h2> Edit Your Wishlist Below: </h2>
 
 <form action="/wishlists/<%=@wishlist.id%>" method="post">
-    <input type="hidden" name="_method" value= "patch">
+    <input type="hidden" name="_method" value= "patch"/>
 
     <label> Wishlist Name: </label>
-        <input type= "text" name= "wishlist[name]" value= "<%=@wishlist.name%>">
+        <input type= "text" name= "wishlist[name]" value= "<%=@wishlist.name%>"/>
         <br>
         <br>
     <label> Item 1: </label>
-        <input type= "text" name= "items[][quantity]" value = "<%=@items[0]["quantity"]%>">
-        <input type= "text" name= "items[][name]" value = "<%=@items[0]["name"]%>">
+        <input type= "text" name= "items[][quantity]" value = "<%=@items[0]["quantity"]%>"/>
+        <input type= "text" name= "items[][name]" value = "<%=@items[0]["name"]%>"/>
         <input type="hidden" name="items[][id]" value="<%= @items[0]["id"] %>"/>
         <br>
         <br>
     <label> Item 2: </label>
-        <input type= "text" name= "items[][quantity]" value = "<%=@items[1]["quantity"]%>">
-        <input type= "text" name= "items[][name]" value = "<%=@items[1]["name"]%>">
+        <input type= "text" name= "items[][quantity]" value = "<%=@items[1]["quantity"]%>"/>
+        <input type= "text" name= "items[][name]" value = "<%=@items[1]["name"]%>"/>
         <input type="hidden" name="items[][id]" value="<%= @items[1]["id"] %>"/>
+        <br>
+        <br>            
+    <label> Item 3: </label>
+        <input type= "text" name= "items[][quantity]" value = "<%=@items[2]["quantity"]%>"/>
+        <input type= "text" name= "items[][name]" value = "<%=@items[2]["name"]%>"/>
+        <input type="hidden" name="items[][id]" value="<%= @items[2]["id"] %>"/>
         <br>
         <br>            
     <button type="submit"> Edit! </button>
