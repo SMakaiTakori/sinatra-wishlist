@@ -9,7 +9,8 @@ class WishlistsController < ApplicationController
         if logged_in?(session)
         erb :'wishlists/new'
         else
-            redirect to '/'
+            #flash message
+            redirect to "/"
         end
     end
 
@@ -29,13 +30,24 @@ class WishlistsController < ApplicationController
 
     get '/wishlists/:id' do      
         if !logged_in?(session)
-            redirect to "/"
+            #flash message
+            redirect to "/login"
         end
         @wishlist = Wishlist.find_by(id: params[:id])      
-        if !@wishlist                     
+        if !@wishlist    
+            #flash message                 
             redirect to "/"
         end
             erb :'/wishlists/show'           
+    end
+
+    get '/wishlists/:id/edit' do
+        @wishlist = Wishlist.find_by(id: params[:id])  
+
+        if !logged_in?(session) || !@wishlist || @wishlist.user != current_user(session)
+            redirect to "/"
+        end
+        erb :'/wishlists/edit'
     end
 
 end
