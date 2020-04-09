@@ -8,8 +8,7 @@ class WishlistsController < ApplicationController
         end
     end
 
-    post '/wishlists' do
-       
+    post '/wishlists' do       
         wishlist = Wishlist.create(params["wishlist"])
         user = current_user(session)
         wishlist.user = user
@@ -20,8 +19,18 @@ class WishlistsController < ApplicationController
            i.wishlist = wishlist 
            i.save
         end
-
         redirect to "/users/#{user.id}"
+    end
+
+    get '/wishlists/:id' do      
+        if !logged_in?(session)
+            redirect to "/wishlists"
+        end
+        @wishlist = Wishlist.find_by(id: params[:id])      
+        if !@wishlist                      
+            redirect to "/wishlists"
+        end
+            erb :'/wishlists/show'           
     end
 
 end

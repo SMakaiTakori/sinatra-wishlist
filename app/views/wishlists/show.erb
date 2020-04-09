@@ -1,0 +1,12 @@
+<h2> Your <%=@wishlist.name%> </h2>
+
+    <%@wishlist.items.each do |item|%>
+    
+        <p><%=item.quantity%> <%=item.name%> </p>
+
+    <% end %>
+
+</form>            
+    <a href= "#"><button> Edit Wishlist </button></a><br><br>
+    <a href= "#"><button> Delete Wishlist </button></a>
+</form>
