@@ -1,8 +1,10 @@
-Welcome to the My Wishlist App, a Sinatra MVC app that stores and keeps track of all your important wishlists.
+## Welcome to the My Wishlist App!
+
+This is a Sinatra MVC app that stores and keeps track of all your important wishlists.
 In order to use this app, clone it and run "bundle install" to install the dependencies.
 Run shotgun in your terminal and go to the localhost on the specific port shown in the terminal.
 
-Usage
+## Usage
 
 Create your user by using signup, or log in if you already have an account.
 
@@ -25,11 +27,10 @@ You also have the option to select 'log out' to log out of your account.
 
 Have Fun!
 
-Contributing
+## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/SMakaiTakori/sinatra-wishlist.
 
-License
-
-The gem is available as open source under the terms of the MIT License..
+## License
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 Copyright (c) 2020 S. Makai Takori
